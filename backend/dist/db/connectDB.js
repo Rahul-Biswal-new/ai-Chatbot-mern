@@ -5,6 +5,7 @@ const connectDB = async () => {
             dbname: "chatbot"
         };
         await mongoose.connect(process.env.MONGODB_URL);
+        console.log("connection to mongoDB established");
     }
     catch (err) {
         console.log(err, "###error");
@@ -19,5 +20,5 @@ const disconnectDB = async () => {
         throw new Error("could not disconnect to mongoDB");
     }
 };
-export default { connectDB, disconnectDB };
+export { connectDB, disconnectDB };
 //# sourceMappingURL=connectDB.js.map

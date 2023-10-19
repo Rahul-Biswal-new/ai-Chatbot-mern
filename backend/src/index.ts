@@ -1,15 +1,9 @@
-// console.log(
-//   "This is a starter kit for this amazing project. With 💓 "
-// );
+import app from './app.js';
+import {connectDB, disconnectDB} from "./db/connectDB.js";
 
-import express from 'express';
-import {config} from 'dotenv'; 
-config();
-const app = express();
 
-// middleware
-app.use(express.json());
 
+connectDB()
 
 // get
 app.get('/', (req,res,next)=>{
@@ -20,6 +14,6 @@ app.get('/', (req,res,next)=>{
 // delete 
 
 // listening port
-app.listen(5000, () => {
-  console.log(`running on port localhost:${5000}`);
+app.listen(process.env.PORT || 5000, () => {
+  console.log(`running on port localhost:${process.env.PORT || 5000}`);
 })
